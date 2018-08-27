@@ -16,7 +16,7 @@ public class LV_GV_Variable {
         String department = "QA";
         System.out.println("Local variable : " + department);
 
-        // Non static Global variable can be access from Class reference
+        // Non static Global variable can be access from Class reference/object
         System.out.println("Global variable 'name' : " + new LV_GV_Variable().name);
         System.out.println("Global variable 'age' : " + new LV_GV_Variable().age);
 
