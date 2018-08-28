@@ -1,4 +1,4 @@
-package library;
+package library.LemdaExpression;
 
 /**
  * Created by greycat on 18.03.14.
@@ -8,7 +8,7 @@ public class LemdaRunnableExample {
     public static void main(String[] args){
 
         // Implemented class
-        Runnable lemdaImplementRunnable = new LemdaImplementRunnable();
+        Runnable lemdaImplementRunnable = new ImplementRunnable();
         Thread implementClassThread = new Thread(lemdaImplementRunnable);
 
         // inner class
