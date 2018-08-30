@@ -1,4 +1,4 @@
-package library.LemdaExpression;
+package library.Lemda;
 
 /**
  * Created by greycat on 18.03.14.

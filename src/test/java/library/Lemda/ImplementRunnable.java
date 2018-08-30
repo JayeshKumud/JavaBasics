@@ -1,4 +1,4 @@
-package library.LemdaExpression;
+package library.Lemda;
 
 /**
  * ImplementRunnable Created by x000814 on 28-Aug-18

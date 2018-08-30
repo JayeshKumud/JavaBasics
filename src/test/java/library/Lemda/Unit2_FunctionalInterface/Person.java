@@ -1,4 +1,4 @@
-package library.LemdaExpression.Exercise1;
+package library.Lemda.Unit2_FunctionalInterface;
 
 /**
  * Person Created by x000814 on 28-Aug-18
