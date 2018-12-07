@@ -72,10 +72,11 @@ public class Collection {
         // Is class implement Map.
         // It Containts only unique element.
         // Store keys and values.
-        // It may have one null key and multiple null value.
+        // HashMap allow one null key and multiple null value.
+        // Hashtable does not allow null keys or values.
         // It mantain no order.
         // HashMap Is non - syncronize and can be accessed by multiple thread
-        // while HashTable by access by one thread at a time
+        // while HashTable - syncronize - access by one thread at a time
 
         HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
         hashMap.put(1, "Test1");
@@ -129,8 +130,9 @@ public class Collection {
         // Java collection framework - Set
         // Interface Set - No duplicate allowed
         // Implement HashSet, TreeSet, LinkHashSet
-        // TreeSet - Iterator list is Ordered by comparator (CompairTo)
 
+
+        // TreeSet - Iterator list is Ordered by comparator (CompairTo)
         Set<String> treeSet = new TreeSet<String>();
         treeSet.add("Test1");
         treeSet.add("Test2");
