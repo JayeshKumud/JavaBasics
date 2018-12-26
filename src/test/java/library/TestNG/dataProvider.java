@@ -5,6 +5,7 @@ import org.testng.annotations.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -13,9 +14,25 @@ import java.util.List;
 public class dataProvider {
 
 
+    @BeforeSuite
+    public static void BeforeSuite () { System.out.println("Before Suite");}
+    @AfterSuite
+    public static void AfterSuite(){System.out.println("After Suite");}
+    @BeforeTest
+    public static void BeforeTest () { System.out.println("Before Test");}
+    @AfterTest
+    public static void AfterTest(){System.out.println("After Test");}
+    @BeforeMethod
+    public static void BeforeMethod () { System.out.println("Before Method");}
+    @AfterMethod
+    public static void AfterMethod(){System.out.println("After Method");}
     @BeforeClass
     public static void beforeClass(){
-        System.out.println("beforeClass method");
+        System.out.println("before Class");
+    }
+    @AfterClass
+    public static void afterClass(){
+        System.out.println("after Class");
     }
 
 
@@ -38,6 +55,7 @@ public class dataProvider {
 
 
 
+
     @DataProvider(name = "EmployeeData_ArrayListOfArrayOfObject")
     public Object[][] GetEmployeeData_ArrayListOfArrayOfObject(){
         ArrayList<Object[]> tempData = FileReaderManager.getInstance().getCsvDataReader().getEmployeeData_ArrayListOfArrayOfObject();
@@ -56,6 +74,33 @@ public class dataProvider {
     }
 
 
+    @Test(dataProvider="EmployeeData_ArrayListOfArrayOfObject")
+    public void Test_05(Object[][] table) {
+        System.out.println("firstName is : " + table[0][0]);
+        System.out.println("lastName is : " + table[0][0]);
+        System.out.println("age is : " + table[0][0]);
+        System.out.println("emailAddress is : " + table[0][0]);
+        System.out.println("address is : " + table[0][0]);
+        System.out.println("phoneNumber is : " + table[0][0]);
+    }
+
+    @DataProvider(name = "EmployeeData_FromJsonToArrayListOfArrayOfObject")
+    public Object[][] GetEmployeeData_FromJsonToArrayListOfArrayOfObject(){
+        ArrayList<Object[]> temp = FileReaderManager.getInstance().getJsonReader().getEmployeeData_FromGson();
+        Object[][] objects = temp.stream().map(s -> Arrays.stream(s).toArray()).toArray(Object[][]::new);
+        return objects;
+    }
+
+    @Test(dataProvider = "EmployeeData_FromJsonToArrayListOfArrayOfObject")
+    public void Test_03(Object firstName,Object lastName, Object age, Object emailAddress, Object  address, Object phoneNumber) {
+        System.out.println("firstName is : " + firstName);
+        System.out.println("lastName is : " + lastName);
+        System.out.println("age is : " + age);
+        System.out.println("emailAddress is : " + emailAddress);
+        System.out.println("address is : " + address);
+        System.out.println("phoneNumber is : " + phoneNumber);
+    }
+
 
     @DataProvider(name = "TestData")
     public Object[][] GetData(){
@@ -71,15 +116,9 @@ public class dataProvider {
     }
 
     @Test(dataProvider="TestData")
-    public void Test_03(String firstName,String lastName){
+    public void Test_04(String firstName,String lastName){
         System.out.println("firstName is : " + firstName);
         System.out.println("lastName is : " + lastName);
     }
 
-
-
-    @AfterClass
-    public static void afterClass(){
-        System.out.println("afterClass method");
-    }
 }
