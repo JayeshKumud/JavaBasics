@@ -69,7 +69,7 @@ public class Collection {
     }
 
     public static void HashMap(){
-        // Is class implement Map.
+        // Is class implement CollectionExample.
         // It Containts only unique element.
         // Store keys and values.
         // HashMap allow one null key and multiple null value.
